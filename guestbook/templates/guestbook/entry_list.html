@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>Entries</title>
+    <link rel="stylesheet" href="{% static 'guestbook/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Guest Entries</h1>
+
+      {% for entry in entries %}
+      <div class="card">
+        <h3>{{ entry.name }}</h3>
+        <p>{{ entry.message }}</p>
+        <small>{{ entry.created_at }}</small>
+      </div>
+      {% empty %}
+      <p>No entries yet.</p>
+      {% endfor %}
+
+      <p><a href="{% url 'home' %}">Back to home</a></p>
+    </div>
+  </body>
+</html>

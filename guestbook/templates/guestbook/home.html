@@ -1,0 +1,19 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>Guest Book</title>
+    <link rel="stylesheet" href="{% static 'guestbook/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the Guest Book</h1>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Save Entry</button>
+      </form>
+
+      <p><a href="{% url 'entry_list' %}">View all entries</a></p>
+    </div>
+  </body>
+</html>
